@@ -22,7 +22,7 @@ Post.init(
             allowNull: false,
         },
         posting_date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         comment: {
