@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./User');
 
 
 class Post extends Model {}
@@ -13,18 +14,27 @@ Post.init(
             autoIncrement: true,
         },
         title: {
-
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         content: {
-
+            type: DataTypes.TEXT,
+            allowNull: false,
         },
         posting_date: {
-
+            type: DataTypes.DATEONLY,
+            allowNull: false,
         },
         comment: {
-            // optional value input
+            type: DataTypes.TEXT
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: User,
+                key: id
+            }
         }
-        // add another section for foreign key to user model (username)
     },
     {
     sequelize,
