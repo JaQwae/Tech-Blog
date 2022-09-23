@@ -18,7 +18,7 @@ Post.init(
         content: {
 
         },
-        created: {
+        posting_date: {
 
         },
         comment: {
