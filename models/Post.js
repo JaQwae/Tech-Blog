@@ -18,7 +18,7 @@ Post.init(
             allowNull: false,
         },
         content: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING(1000),
             allowNull: false,
         },
         posting_date: {
@@ -26,7 +26,7 @@ Post.init(
             allowNull: false,
         },
         comment: {
-            type: DataTypes.TEXT
+            type: DataTypes.STRING(1000)
         },
         user_id: {
             type: DataTypes.INTEGER,
