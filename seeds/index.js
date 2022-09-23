@@ -4,7 +4,7 @@ const seedPost = require('./postData');
 const seedUser = require('./userData');
 
 const seedALL = async () => {
-    await sequelize.sync({ focre: true});
+    await sequelize.sync({ force: true});
 
     await seedPost();
 
