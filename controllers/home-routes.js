@@ -10,6 +10,16 @@ router.get('/', async (req, res) => {
     }
 })
 
+// change to individual later on
+router.get('/post', async (req, res) => {
+    try{
+        res.send ('Post route established');
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 router.get('/login', async (req, res) => {
     try {
         res.send('Login route established')
