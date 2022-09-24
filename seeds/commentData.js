@@ -12,7 +12,7 @@ commentData = [
     }
 ]
 
-const seedComment = () => Post.bulkCreate(commentData);
+const seedComment = () => Comment.bulkCreate(commentData);
 
 module.exports = seedComment;
 
