@@ -1,8 +1,18 @@
 const router = require('express').Router();
+const { User, Post, Comment } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        res.send ('Homepage routes established')
+        const dbPostData = await Post.findAll();
+
+        // return post of the 1 index
+        // console.log(dbPostData[0].dataValues)
+        // returns post title of the 1 index
+        // console.log(dbPostData[0].dataValues.title)
+        // returns post date created of the 1 index
+        // console.log(dbPostData[0].dataValues.createdAt)
+        
+        res.render('homepage', dbPostData);
 
     } catch (err) {
         console.log(err);
