@@ -30,6 +30,7 @@ Post.init(
             references: {
                 model: Comment,
                 key: 'id'
+            }
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -45,6 +46,7 @@ Post.init(
         underscored: true,
         modelName: 'post',
     }
+
 );
 
 module.exports = Post;
