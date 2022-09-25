@@ -21,10 +21,6 @@ Post.init(
             type: DataTypes.STRING(1000),
             allowNull: false,
         },
-        posting_date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
         comment_id: {
             type: DataTypes.INTEGER,
             references: {
