@@ -32,11 +32,11 @@ router.get('/dashboard', async (req, res) => {
 
 router.get('/login', async (req, res) => {
     try {
-          // If a session exists, redirect the request to the homepage
-        // if (req.session.logged_in) {
-        //     res.redirect('/');
-        //     return;
-        // }
+        //If a session exists, redirect the request to the homepage
+        if (req.session.logged_in) {
+            res.redirect('/');
+            return;
+        }
         res.render('login');
     } catch (err) {
         console.log(err);
