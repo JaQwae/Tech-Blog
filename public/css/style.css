@@ -1,9 +1,33 @@
 :root {
-    --paleGold: rgb(255, 242, 159); 
+    --paleGold: #fff29f; 
     --charcoal: #3b4d61;
     --grey: #6b7b8c;
+    --white: #ffffff
+
+}
+
+body {
+    background-color: var(--grey);
 }
 
 h1 {
-    color: var(--paleGold)
+    background-image: linear-gradient(300deg, var(--paleGold) 50%, var(--white) 72%, var(--charcoal) 75%);
+    color: var(--paleGold);
+    margin: 0;
+    padding: 1rem;
+}
+
+.navbar {
+    background-image: radial-gradient(circle, rgba(59,77,97,1) 0%, rgba(80,96,114,1) 4%, rgba(70,87,106,1) 10%, rgba(100,114,130,1) 14%, rgba(92,107,124,1) 19%, rgba(117,130,144,1) 24%, rgba(109,123,138,1) 29%, rgba(143,154,165,1) 34%, rgba(131,143,155,1) 39%, rgba(171,178,187,1) 45%, rgba(155,164,174,1) 51%, rgba(188,194,201,1) 58%, rgba(180,187,195,1) 66%, rgba(218,221,225,1) 73%, rgba(202,207,212,1) 80%, rgba(237,239,241,1) 86%, rgba(228,230,233,1) 93%, rgba(255,255,255,1) 100%);
+}
+
+.nav-link {
+    color: var(--grey)
+}
+
+.home-post {
+    background-image: linear-gradient(300deg, rgba(255,255,255,1) 7%, rgba(59,77,97,1) 77%, rgba(255,242,159,1) 77%);
+    padding: 0.5rem;
+    margin: 3rem;
+    color: var(--grey);
 }
