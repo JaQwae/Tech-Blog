@@ -3,16 +3,14 @@ const { User, Post, Comment } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
+        // Get all post
         const dbPostData = await Post.findAll();
 
-        // return post of the 1 index
-        // console.log(dbPostData[0].dataValues)
-        // returns post title of the 1 index
-        // console.log(dbPostData[0].dataValues.title)
-        // returns post date created of the 1 index
-        // console.log(dbPostData[0].dataValues.createdAt)
+         // Serialize user data so templates can read it
+        const posts = dbPostData.map((post) => post.get({ plain: true }));
         
-        res.render('homepage', dbPostData);
+        // Pass serialized post data into Handlebars.js template
+        res.render('homepage', { posts });
 
     } catch (err) {
         console.log(err);
