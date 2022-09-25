@@ -32,10 +32,16 @@ router.get('/dashboard', async (req, res) => {
 
 router.get('/login', async (req, res) => {
     try {
-        res.send('Login route established')
+          // If a session exists, redirect the request to the homepage
+        // if (req.session.logged_in) {
+        //     res.redirect('/');
+        //     return;
+        // }
+        res.render('login');
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 })
+
 module.exports = router;
