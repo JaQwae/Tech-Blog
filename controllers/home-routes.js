@@ -18,15 +18,17 @@ router.get('/', async (req, res) => {
     }
 })
 
-// change to individual later on
-router.get('/post', async (req, res) => {
+// dashboard route
+router.get('/dashboard', async (req, res) => {
     try{
-        res.send ('Post route established');
+        res.send ('Dashboard route established');
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 })
+
+// create routes for individual post
 
 router.get('/login', async (req, res) => {
     try {
