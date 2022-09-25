@@ -1,9 +1,9 @@
 :root {
-    --gold: #ef9d10f; 
+    --paleGold: rgb(255, 242, 159); 
     --charcoal: #3b4d61;
     --grey: #6b7b8c;
 }
 
 h1 {
-    color: orange;
+    color: var(--paleGold)
 }
