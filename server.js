@@ -1,13 +1,16 @@
 // npm requires
 const path = require('path');
 const express = require('express');
-// const session = require('express-session');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 
 // file/folder requires
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
+
+// Create a new sequelize store using the express-session package
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Init App
 const app = express();
@@ -20,6 +23,18 @@ const hbs = exphbs.create({ helpers });
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+// Configure and link a session object with the sequelize store
+const sess = {
+    secret: 'secret',
+    cookie: {},
+    saveUninitialized: true, store: new SequelizeStore({
+        db:sequelize
+    })
+};
+
+// Express-session middleware
+app.use(session(sess));
 
 //Set Static Folder
 app.use(express.static(path.join(__dirname, '/public')));
