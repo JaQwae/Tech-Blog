@@ -22,7 +22,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 //Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 //BodyParser Middleware
 app.use(express.json());
