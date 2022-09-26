@@ -5,6 +5,7 @@ router.post('/login', async (req, res) => {
     try {
         // find user who matched the search
         const userData = await User.findOne({ where: { name: req.body.name } });
+        console.log(userData)
         if (!userData) {
             res
                 .status(400)
