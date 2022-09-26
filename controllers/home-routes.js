@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         const posts = dbPostData.map((post) => post.get({ plain: true }));
         
         // Pass serialized post data into Handlebars.js template
-        res.render('homepage', { posts });
+        res.render('homepage', { posts, loggedIn: req.session.loggedIn });
 
     } catch (err) {
         console.log(err);
@@ -33,7 +33,7 @@ router.get('/dashboard', async (req, res) => {
 router.get('/login', async (req, res) => {
     try {
         //If a session exists, redirect the request to the homepage
-        if (req.session.logged_in) {
+        if (req.session.loggedIn) {
             res.redirect('/');
             return;
         }
