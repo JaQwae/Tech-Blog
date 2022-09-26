@@ -22,7 +22,13 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="/">Homepage</a>
                     <a class="nav-link" href="/dashboard">Dashboard</a>
+                    <!-- If the user is logged in, show a logout button -->
+                    {{#if loggedIn}}
+                    <button id="logout" class="btn-no-style">Logout</button>
+                    {{else}}
+                    <!-- Otherwise, show a link to login -->
                     <a class="nav-link" href="/login">Login</a>
+                    {{/if}}
                 </div>
             </div>
         </div>
@@ -30,6 +36,9 @@
     <main>
         {{{body}}}
     </main>
-    <script></script>
+    <!-- If the user is logged in, load the JS script for when they logout -->
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
