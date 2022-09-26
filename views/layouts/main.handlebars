@@ -24,7 +24,8 @@
                     <a class="nav-link" href="/dashboard">Dashboard</a>
                     <!-- If the user is logged in, show a logout button -->
                     {{#if loggedIn}}
-                    <a class="nav-link" href="/logout" >Logout</a>
+                    <button id="logout" class="btn-no-style">Logout</button>
+                    {{!-- <a class="nav-link" href="/logout" >Logout</a> --}}
                     {{else}}
                     <!-- Otherwise, show a link to login -->
                     <a class="nav-link" href="/login">Login</a>
