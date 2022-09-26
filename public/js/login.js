@@ -6,15 +6,16 @@ const loginFormHandler = async (event) => {
     const username = document.querySelector('#login-username').value.trim();
     const password = document.querySelector('#login-password').value.trim();
 
+    console.log(username,  password)
     if (username && password) {
-        const response = await fetch('http://localhost:3001/api/user/login', {
+        const response = await fetch('/api/user/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('http://localhost:3001/');
+            document.location.replace('/');
         } else {
             alert('Login failed');
         }
