@@ -27,7 +27,14 @@ app.set('view engine', 'handlebars');
 // Configure and link a session object with the sequelize store
 const sess = {
     secret: 'secret',
-    cookie: {},
+    cookie: {
+        // maximum age for the cookie to be valid is 1 min
+        maxAge: 60 * 60 * 1000,
+        httpOnly: true,
+        secure: false,
+        sameSite: 'strict',
+    },
+    resave: false,
     saveUninitialized: true, store: new SequelizeStore({
         db:sequelize
     })
