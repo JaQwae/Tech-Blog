@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
     try {
@@ -19,7 +20,7 @@ router.get('/', async (req, res) => {
 })
 
 // dashboard route
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try{
         res.send ('Dashboard route established');
     } catch (err) {
