@@ -10,11 +10,11 @@ router.get('/', async (req, res) => {
 
         // Serialize user data so templates can read it
         const posts = dbPostData.map((post) => post.get({ plain: true }));
-        
+        console.log(posts);
         // Pass serialized post data into Handlebars.js template
         res.render('homepage', { posts, loggedIn: req.session.loggedIn });
 
-        console.log(dbPostData)
+        
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
