@@ -6,17 +6,20 @@ router.get('/', async (req, res) => {
     try {
         // Get all post
         const dbPostData = await Post.findAll();
+        
 
-         // Serialize user data so templates can read it
+        // Serialize user data so templates can read it
         const posts = dbPostData.map((post) => post.get({ plain: true }));
         
         // Pass serialized post data into Handlebars.js template
         res.render('homepage', { posts, loggedIn: req.session.loggedIn });
 
+        console.log(dbPostData)
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
+    
 })
 
 // dashboard route
