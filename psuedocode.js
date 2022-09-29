@@ -34,7 +34,7 @@
 
 
 // WHEN I click on an existing blog post
-// THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
+// THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment (DO COMMIT SECTION)
 
 
 

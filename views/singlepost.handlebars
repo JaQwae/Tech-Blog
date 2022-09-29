@@ -1,16 +1,13 @@
-<div class="card single-post">
-    <section class="card-header single-post-header">
-        <div class="col-md-9">
-            <!-- Render user-specific data with Handlebars.js expressions -->
-            <h2> {{post.title}} </h2>
-        </div>
-        <div class="col-md-3">
-            <h3>{{format_date post.createdAt}}</h3>
-        </div>
-    </section>
-    <section class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<div class="card text-center single-post">
+    <div class="card-header single-post-header">
+        <h2> {{post.title}} </h2>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{post.content}}</h5>
+        <p class="card-text">Posted by: {{post.user.username}}</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
-    </section>
+    </div>
+    <div class="card-footer text-muted single-post-footer">
+        <p>Posted at: {{format_date post.createdAt}}</p>
+    </div>
 </div>
