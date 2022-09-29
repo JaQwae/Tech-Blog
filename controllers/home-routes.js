@@ -47,10 +47,8 @@ router.get('/post/:id', async (req, res) => {
 
         const post = dbPostData.get({ plain: true });
         console.log(post)
-        res.render('singlePost', {
-            ...post,
-            logged_in: req.session.logged_in
-        });
+        post.logged_in = req.session.logged_in
+        res.render('singlePost', { post });
 
     } catch(err) {
         console.log(err);
