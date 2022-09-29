@@ -2,9 +2,10 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth')
 
+// Route to get all post and generate homepage
 router.get('/', async (req, res) => {
     try {
-        // Get all post
+        
         const dbPostData = await Post.findAll();
         
         // Serialize user data so templates can read it
@@ -19,7 +20,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
     
-})
+});
 
 // dashboard route
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -29,9 +30,23 @@ router.get('/dashboard', withAuth, async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
-})
+});
 
 // create routes for individual post
+router.get('/post/:id', async (req, res) => {
+
+    try{
+        const dbPostData = await Post.findByPk(req.params.id);
+        console.log(dbPostData)
+        if (!dbPostData) {
+            res.status(404).json({message: 'No dish with this id!'});
+            return;
+        }
+    } catch {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 router.get('/login', async (req, res) => {
     try {
@@ -45,6 +60,6 @@ router.get('/login', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
-})
+});
 
 module.exports = router;
