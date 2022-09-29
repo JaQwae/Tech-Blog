@@ -46,12 +46,12 @@ router.get('/post/:id', async (req, res) => {
         });
 
         const post = dbPostData.get({ plain: true });
-        console.log(post);
+        console.log(post)
+        res.render('singlePost', {
+            ...post,
+            logged_in: req.session.logged_in
+        });
 
-        if (!dbPostData) {
-            res.status(404).json({message: 'No dish with this id!'});
-            return;
-        }
     } catch(err) {
         console.log(err);
         res.status(500).json(err);
