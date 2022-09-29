@@ -5,7 +5,12 @@
     <div class="card-body">
         <h5 class="card-title">{{post.content}}</h5>
         <p class="card-text">Posted by: {{post.user.username}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        
+    </div>
+    <div>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment"></textarea>
+        <a href="#" class="btn btn-primary">Submit</a>  
     </div>
     <div class="card-footer text-muted single-post-footer">
         <p>Posted at: {{format_date post.createdAt}}</p>
