@@ -36,13 +36,23 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/post/:id', async (req, res) => {
 
     try{
-        const dbPostData = await Post.findByPk(req.params.id);
-        console.log(dbPostData)
+        const dbPostData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+            ],
+        });
+
+        const post = dbPostData.get({ plain: true });
+        console.log(post);
+
         if (!dbPostData) {
             res.status(404).json({message: 'No dish with this id!'});
             return;
         }
-    } catch {
+    } catch(err) {
         console.log(err);
         res.status(500).json(err);
     }
