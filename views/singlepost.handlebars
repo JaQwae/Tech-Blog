@@ -1,18 +1,23 @@
 <div class="card text-center single-post">
-    <div class="card-header single-post-header">
+    <section class="card-header single-post-header">
         <h2> {{post.title}} </h2>
-    </div>
-    <div class="card-body">
+    </section>
+    <section class="card-body single-post-body">
         <h5 class="card-title">{{post.content}}</h5>
         <p class="card-text">Posted by: {{post.user.username}}</p>
-        
-    </div>
-    <div>
-        <label for="comment">Comment:</label>
-        <textarea id="comment" name="comment"></textarea>
-        <a href="#" class="btn btn-primary">Submit</a>  
-    </div>
-    <div class="card-footer text-muted single-post-footer">
+    </section>
+    <section class='single-post-comment-container'>
+        <div class='single-post-comment-label'>
+            <label for="comment">Comment:</label>
+        </div>
+        <div class='single-post-comment-textarea'>
+            <textarea id="comment" name="comment"></textarea>
+        </div>
+        <div>
+            <a href="#" class="btn btn-primary single-post-comment-btn">Submit</a>
+        </div>
+    </section>
+    <section class="card-footer text-muted single-post-footer">
         <p>Posted at: {{format_date post.createdAt}}</p>
-    </div>
+    </section>
 </div>
