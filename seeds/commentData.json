@@ -1,12 +1,18 @@
 [
     {
-        "content": "Fight the gate keepers!"
+        "content": "Fight the gate keepers!",
+        "user_id": 3,
+        "post_id": 1
     },
     {
-        "content": "Are you sure about that?"
+        "content": "Are you sure about that?",
+        "user_id": 2,
+        "post_id": 3
     },
     {
-        "content":  "Agreed!"
+        "content":  "Agreed!",
+        "user_id": 1,
+        "post_id": 4
     }
 ]
 

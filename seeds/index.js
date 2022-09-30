@@ -17,17 +17,19 @@ const seedALL = async () => {
     });
     console.log('\n----- USER SEEDED -----\n');
 
-    await Comment.bulkCreate(commentData, {
-        individualHooks: true,
-        returning: true,
-    });
-    console.log('\n----- COMMENT SEEDED -----\n');
+
 
     await Post.bulkCreate(postData, {
         individualHooks: true,
         returning: true,
     });
     console.log('\n----- POST SEEDED -----\n');
+
+    await Comment.bulkCreate(commentData, {
+        individualHooks: true,
+        returning: true,
+    });
+    console.log('\n----- COMMENT SEEDED -----\n');
 
     process.exit(0)
 };

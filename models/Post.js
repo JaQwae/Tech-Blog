@@ -21,13 +21,6 @@ Post.init(
             type: DataTypes.STRING(1000),
             allowNull: false,
         },
-        comment_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'comment',
-                key: 'id'
-            }
-        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
