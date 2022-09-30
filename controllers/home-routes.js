@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { createPool } = require('mysql2');
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth')
 
@@ -40,8 +41,12 @@ router.get('/post/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username']
+                    attributes: ['username'],
                 },
+            //     {
+            //         model: Comment,
+            //         attributes: ['content']
+            //     }
             ],
         });
 

@@ -12,12 +12,20 @@ Comment.init(
             autoIncrement: true,
         },
         content: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT,
+            allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
+                key: 'id'
+            }
+        },
+        post_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'post',
                 key: 'id'
             }
         }
