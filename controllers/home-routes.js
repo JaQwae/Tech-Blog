@@ -33,7 +33,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 // create routes for individual post
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
 
     try{
         const dbPostData = await Post.findByPk(req.params.id, {

@@ -1,11 +1,12 @@
 const addComment = async () => {
     
     try {
-
+        
         const commentTextEl = document.querySelector("#comment");
         const content = commentTextEl.value.trim();
         const post_id = window.location.pathname.replace("/single/", "");
 
+        alert('hi');
         console.log(content)
         console.log(post_id)
 
