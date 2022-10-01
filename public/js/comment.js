@@ -23,7 +23,7 @@ const addComment = async () => {
         }
     } catch (err) {
         console.log("post err = " + err);
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 };
 
