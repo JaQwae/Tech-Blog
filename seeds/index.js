@@ -17,6 +17,7 @@ const seedALL = async () => {
     });
     console.log('\n----- USER SEEDED -----\n');
 
+
     await Post.bulkCreate(postData, {
         individualHooks: true,
         returning: true,
