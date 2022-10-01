@@ -26,6 +26,7 @@ router.get('/', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
     try{
         res.send ('Dashboard route established');
+        // res.render('dashboard', { post, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -52,7 +53,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
         const post = dbPostData.get({ plain: true });
         console.log(post)
         post.logged_in = req.session.logged_in
-        res.render('singlePost', { post });
+        res.render('singlePost', { post, loggedIn: req.session.loggedIn });
 
     } catch(err) {
         console.log(err);
