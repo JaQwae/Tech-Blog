@@ -6,6 +6,7 @@
         <h5 class="card-title">{{post.content}}</h5>
         <p class="card-text">Posted by: {{post.user.username}}</p>
     </section>
+    
     <section class='single-post-comment-container'>
         <div class='single-post-comment-label'>
             <label for="comment">Comment:</label>
@@ -16,6 +17,10 @@
         <div>
             <button id = 'comment-submit' class="btn btn-primary single-post-comment-btn">Submit</button>
         </div>
+        {{!-- <div>
+            {{> comment post.comments}}
+        </div> --}}
+
     </section>
     <section class="card-footer text-muted single-post-footer">
         <p>Posted at: {{format_date post.createdAt}}</p>
