@@ -22,17 +22,6 @@ router.get('/', async (req, res) => {
     
 });
 
-// dashboard route
-router.get('/dashboard', withAuth, async (req, res) => {
-    try{
-        res.send ('Dashboard route established');
-        // res.render('dashboard', { post, loggedIn: req.session.loggedIn });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
-
 // create routes for individual post
 router.get('/post/:id', withAuth, async (req, res) => {
 
