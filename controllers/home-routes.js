@@ -22,18 +22,8 @@ router.get('/', async (req, res) => {
     
 });
 
-// dashboard route
-router.get('/dashboard', withAuth, async (req, res) => {
-    try{
-        res.send ('Dashboard route established');
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
-
 // create routes for individual post
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
 
     try{
         const dbPostData = await Post.findByPk(req.params.id, {
@@ -52,7 +42,7 @@ router.get('/post/:id', async (req, res) => {
         const post = dbPostData.get({ plain: true });
         console.log(post)
         post.logged_in = req.session.logged_in
-        res.render('singlePost', { post });
+        res.render('singlePost', { post, loggedIn: req.session.loggedIn });
 
     } catch(err) {
         console.log(err);
@@ -62,8 +52,9 @@ router.get('/post/:id', async (req, res) => {
 
 router.get('/login', async (req, res) => {
     try {
+        const loginStatus = await req.session.loggedIn
         //If a session exists, redirect the request to the homepage
-        if (req.session.loggedIn) {
+        if (loginStatus) {
             res.redirect('/');
             return;
         }
@@ -73,5 +64,7 @@ router.get('/login', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
 
 module.exports = router;
