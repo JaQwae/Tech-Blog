@@ -12,11 +12,11 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-        if (req.sessions) {
+        if (req.session) {
             Comment.create({
                     comment_content: req.body.content,
                     post_id: req.body.post_id,
-                    user_id: req.sessions.user_id,
+                    user_id: req.session.user_id,
             })
                 .then(dbCommentData => res.json(dbCommentData))
                 console.log(dbCommentData)
