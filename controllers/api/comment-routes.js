@@ -2,28 +2,6 @@ const router = require('express').Router()
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
-    try{
-    
-    const dbCommentData = await Post.findByPk(req.params.id, {
-        include: [
-            {
-                model: Comment,
-                attributes: ['content']
-            }
-        ],
-    });
-    console.log(dbCommentData)
-
-    const comment = dbCommentData.get({ plain: true });
-    comment.logged_in = req.session.logged_in
-    res.render('singlePost', { comment, loggedIn: req.session.loggedIn });
-
-    } catch(err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
 
 router.post('/', withAuth, (req, res) => {
         if (req.session) {
