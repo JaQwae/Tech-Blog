@@ -2,13 +2,19 @@ const router = require('express').Router()
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
-    Comment.findAll({})
-        .then(dbCommentData => res.json(dbCommentData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
+router.get('/', withAuth, async (req, res) => {
+    try{
+    
+    const dbCommentData = await Comment.findAll()
+
+    const comment = dbCommentData.get({ plain: true });
+    comment.logged_in = req.session.logged_in
+    res.render('singlePost', { comment, loggedIn: req.session.loggedIn });
+
+    } catch(err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 router.post('/', withAuth, (req, res) => {

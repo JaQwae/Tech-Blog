@@ -5,9 +5,7 @@ const addComment = async () => {
         const commentTextEl = document.querySelector("#comment");
         const content = commentTextEl.value.trim();
         const post_id = window.location.href.split("/").pop();
-        
-        console.log(content)
-        console.log(post_id)
+
 
         const response = await fetch('/api/comment', {
             method: 'POST',

@@ -18,11 +18,11 @@
             <button id = 'comment-submit' class="btn btn-primary single-post-comment-btn">Submit</button>
         </div>
     </section>
-    {{!-- <section class="flex-row justify-center">
-        {{#each post.comment as |comments|}}
-        {{> comments}}
+    <section class="flex-row justify-center">
+        {{#each post.comments as |comment|}}
+        {{> post-comments}}
         {{/each}}
-    </section> --}}
+    </section>
     <section class="card-footer text-muted single-post-footer">
         <p>Posted at: {{format_date post.createdAt}}</p>
     </section>
