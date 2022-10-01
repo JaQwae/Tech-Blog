@@ -1,7 +1,17 @@
 const addComment = async () => {
+    
     try {
+
+        const commentTextEl = document.querySelector("#comment");
+        const content = commentTextEl.value.trim();
+        const post_id = window.location.pathname.replace("/single/", "");
+
+        console.log(content)
+        console.log(post_id)
+
         const response = await fetch('/api/comment', {
             method: 'POST',
+            body: JSON.stringify({content, post_id}),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -16,31 +26,6 @@ const addComment = async () => {
     }
 };
 
-const newCommentHandler = async (event) => {
-    event.preventDefault();
-
-    const commentTextEl = document.querySelector("#comment-text");
-    const content = commentTextEl.value.trim()
-    const post_id = window.location.pathname.replace("/single/", "");
-
-    if(!content){
-        alert("You must fill in text for your comment!")
-    } else{
-        const response = await fetch('/api/comment',
-        {
-            method: "POST",
-            body: JSON.stringify({content, post_id}),
-            headers: {"Content-Type": "application/json"}
-        })
-
-        if(response.ok){
-            location.reload()            
-        }else{
-            alert("Failed to create the comment!")
-        }
-    }
-}
-
 document
-    .querySelector('#commentSubmit')
+    .querySelector('#comment-submit')
     .addEventListener('click', addComment);
