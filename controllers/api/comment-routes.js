@@ -5,7 +5,15 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try{
     
-    const dbCommentData = await Comment.findAll()
+    const dbCommentData = await Post.findByPk(req.params.id, {
+        include: [
+            {
+                model: Comment,
+                attributes: ['content']
+            }
+        ],
+    });
+    console.log(dbCommentData)
 
     const comment = dbCommentData.get({ plain: true });
     comment.logged_in = req.session.logged_in
