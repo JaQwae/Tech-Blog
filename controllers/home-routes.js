@@ -62,8 +62,9 @@ router.get('/post/:id', async (req, res) => {
 
 router.get('/login', async (req, res) => {
     try {
+        const loginStatus = await req.session.loggedIn
         //If a session exists, redirect the request to the homepage
-        if (req.session.loggedIn) {
+        if (loginStatus) {
             res.redirect('/');
             return;
         }
