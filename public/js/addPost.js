@@ -1,13 +1,13 @@
-const addPost = async () => {
+const addPost = async (event) => {
     try {
-
-        const newPostTitleEl = document.querySelector('new-post-title');
+        const newPostTitleEl = document.querySelector("#new-post-title");
         const postTitle = newPostTitleEl.ariaValueMax.trim();
 
-        const newPostContentEl = document.querySelector('new-post-content');
+        const newPostContentEl = document.querySelector('#new-post-content');
         const postContent = newPostContentEl.ariaValueMax.trim();
 
-        const response = await fetch(`/api/posts`, {
+        alert('Hi')
+        const response = await fetch('/api/post', {
             method: 'POST',
             body: JSON.stringify({
                 postTitle,
@@ -31,5 +31,5 @@ const addPost = async () => {
 };
 
 document
-    .querySelector('#new-post-submit')
+    .querySelector('#new-post-create')
     .addEventListener('click', addPost);
