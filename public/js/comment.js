@@ -1,7 +1,6 @@
 const addComment = async () => {
     
     try {
-        
         const commentTextEl = document.querySelector("#comment");
         const content = commentTextEl.value.trim();
         const post_id = window.location.href.split("/").pop();

@@ -1,21 +1,14 @@
 const addPost = async (event) => {
+    event.preventDefault();
     try {
-        const newPostTitleEl = document.querySelector("#new-post-title");
-        const postTitle = newPostTitleEl.ariaValueMax.trim();
+        const title = document.querySelector("#new-post-title").value.trim();
+        const content = document.querySelector('#new-post-content').value.trim();
+        
 
-        const newPostContentEl = document.querySelector('#new-post-content');
-        const postContent = newPostContentEl.ariaValueMax.trim();
-
-        alert('Hi')
         const response = await fetch('/api/post', {
             method: 'POST',
-            body: JSON.stringify({
-                postTitle,
-                postContent
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            body: JSON.stringify({title, content}),
+            headers: { 'Content-Type': 'application/json' }
         });
 
         if (response.ok) {
