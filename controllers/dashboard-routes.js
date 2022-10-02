@@ -37,7 +37,27 @@ router.get('/', withAuth, async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     };
+});
 
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const dbPostData = await Post.create({
+                title: req.body.title,
+                content: req.body.content,
+                user_id: req.session.user_id
+            })
+        const newPosts = dbPostData.map(post => post.get({ plain: true }));
+        console.log(newPosts)
+        res.render('dashboard', { newPosts, loggedIn: true });
+
+    } catch(err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+});
+
+router.get('/new', (req, res) => {
+    res.render('newPost');
 });
 
 module.exports = router
