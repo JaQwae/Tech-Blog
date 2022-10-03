@@ -46,7 +46,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
         const post = dbPostData.get({ plain: true });
         console.log(post)
         post.logged_in = req.session.logged_in
-        res.render('singlePost', { post, loggedIn: req.session.loggedIn });
+        res.render('editPost', { post, loggedIn: req.session.loggedIn });
 
     } catch(err) {
         console.log(err);

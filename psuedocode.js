@@ -21,7 +21,7 @@
 // THEN my user credentials are saved and I am logged into the site
 
 
-// WHEN I revisit the site at a later time and choose to sign in
+// *WHEN I revisit the site at a later time and choose to sign in
 // THEN I am prompted to enter my username and password
 
 
@@ -46,11 +46,11 @@
 // THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
 
 
-// WHEN I click on the button to add a new blog post
+// *WHEN I click on the button to add a new blog post
 // THEN I am prompted to enter both a title and contents for my blog post
 
 
-// WHEN I click on the button to create a new blog post
+// *WHEN I click on the button to create a new blog post
 // THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
 
 
