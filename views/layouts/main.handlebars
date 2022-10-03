@@ -36,9 +36,12 @@
     <main>
         {{{body}}}
     </main>
-    <!-- If the user is logged in, load the JS script for when they logout -->
+    
     <script src="/js/comment.js"></script>
     <script src="/js/addPost.js"></script>
+    <script src="/javascript/edit-post.js"></script>
+    
+    <!-- If the user is logged in, load the JS script for when they logout -->
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
