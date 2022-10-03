@@ -13,7 +13,6 @@ async function editPost(event) {
         const response = await fetch('/api/post/{id}', {
             method: 'PUT',
             body: JSON.stringify({
-                post_id: id,
                 title,
                 content
             }),
@@ -33,5 +32,5 @@ async function editPost(event) {
 };
 
 document
-    .querySelector('#edit-post-content')
-    .addEventListener('submit', editPost);
+    .querySelector('#post-update')
+    .addEventListener('click', editPost);
