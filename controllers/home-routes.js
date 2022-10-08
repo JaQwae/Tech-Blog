@@ -25,21 +25,14 @@ router.get('/', async (req, res) => {
 // create routes for individual post
 router.get('/post/:id', withAuth, async (req, res) => {
 
-    try{
+    try {
         const dbPostData = await Post.findByPk(req.params.id, {
             include: [
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
+                User,
                 {
                     model: Comment,
-                    attributes: ['content', 'createdAt', 'user_id'],
-                    include: {
-                        model: User,
-                        attributes: ['username'],
-                    }
-                }
+                    include: [User],
+                },
             ],
         });
 
