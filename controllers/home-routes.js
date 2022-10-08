@@ -25,21 +25,28 @@ router.get('/', async (req, res) => {
 // create routes for individual post
 router.get('/post/:id', withAuth, async (req, res) => {
 
-    try {
+    try{
         const dbPostData = await Post.findByPk(req.params.id, {
             include: [
-                User,
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
                 {
                     model: Comment,
-                    include: [User],
-                },
+                    attributes: ['content', 'createdAt', 'user_id'],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    }
+                }
             ],
         });
 
         const post = dbPostData.get({ plain: true });
         console.log(post)
-        // post.logged_in = req.session.logged_in
-        res.render('singlePost', { post });
+        post.logged_in = req.session.logged_in
+        res.render('singlepost', { post, loggedIn: req.session.loggedIn });
 
     } catch(err) {
         console.log(err);
