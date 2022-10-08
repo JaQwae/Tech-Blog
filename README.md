@@ -23,6 +23,7 @@ To run this application, you must complete the following steps:
   If all steps above are completed correctly, then the application should generate a local tech blog website.
 
 ## Usage:
+![site homepage screen shot](./images/techBlog%20Screenshot.png)
 
 ### Features:
 #### Notable features of this project includes:
