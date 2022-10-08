@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/JaQwae/Tech-Blog#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.1",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.2",
