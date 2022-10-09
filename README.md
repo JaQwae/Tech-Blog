@@ -3,6 +3,7 @@
 ## Description:
 This application is a blog site that is similar to a Wordpress site, where users can post any and everything tech. The app follows the MVC paradigm.
 
+[Deployed link](https://radiant-gorge-67933.herokuapp.com/)
 ## Table of Contents:
 ### [Installation](#installation)
 ### [Usage](#usage)
